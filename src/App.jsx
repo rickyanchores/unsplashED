@@ -1,44 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { searchPhotos } from './Components/Unsplash/Unsplash';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchTerm, setSearchTerm] = useState('');
+  const [photos, setPhotos] = useState([]);
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const results = await searchPhotos(searchTerm);
+      setPhotos(results);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <h1 className="bg-red-700">Ricky Personal Boiler Plate</h1>
-        <ul>
-          <li>React</li>
-          <li>Tailwindcss</li>
-          <li>SCSS</li>
-          <p>To use Lottie animations install:</p>
-          <p>npm i lottie-react</p>
-          <p>visit:</p> <a href="https://lottiefiles.com/featured?utm_medium=web&utm_source=navigation-featured">LottieFiles</a>
-        </ul>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h1>ED - Unsplash Photo Search App</h1>
+      <form onSubmit={handleSearchSubmit} className="form bg-slate-600 p-5 mt-5 rounded">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search for photos..."
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div className="photo-list">
+        {photos.map((photo) => (
+          <img className="image p-5 m-5 rounded-lg "
+            key={photo.id}
+            src={photo.urls.regular}
+            alt={photo.alt_description}
+          />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div>Created by Ricky A</div>
+    </div>
+  );
 }
 
-export default App
+export default App;
