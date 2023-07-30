@@ -22,19 +22,20 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ED - Unsplash Photo Search App</h1>
-      <form onSubmit={handleSearchSubmit} className="form bg-slate-600 p-5 mt-5 rounded">
+      <h1>unsplashED</h1>
+      <form onSubmit={handleSearchSubmit} className="form  p-5 mt-5 rounded">
         <input
           type="text"
+          className="input p-2 rounded font-mono"
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Search for photos..."
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="bg-slate-800">Search</button>
       </form>
-      <div className="photo-list">
+      <div className="photo-list flex flex-wrap">
         {photos.map((photo) => (
-          <img className="image p-5 m-5 rounded-lg "
+          <img className="image p-5 m-5 rounded-lg translate-x-2"
             key={photo.id}
             src={photo.urls.regular}
             alt={photo.alt_description}
