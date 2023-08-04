@@ -22,11 +22,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>unsplashED</h1>
-      <form onSubmit={handleSearchSubmit} className="form  p-5 mt-5 rounded">
+      <h1 className="text-orange-600 font-mono">unsplash-ED</h1>
+      <form onSubmit={handleSearchSubmit} className="form mt-5 rounded">
         <input
           type="text"
-          className="input p-2 rounded font-mono"
+          className="input p-2 m-5 rounded font-mono"
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Search for photos..."
@@ -35,7 +35,7 @@ function App() {
       </form>
       <div className="photo-list flex flex-wrap">
         {photos.map((photo) => (
-          <img className="image p-5 m-5 rounded-lg translate-x-2"
+          <img className="image p-5 mt-5 rounded-2xl"
             key={photo.id}
             src={photo.urls.regular}
             alt={photo.alt_description}

@@ -15,7 +15,7 @@ export const searchPhotos = async (query) => {
     const response = await unsplashApi.get('search/photos', {
       params: {
         query: query,
-        per_page: 5
+        per_page: 10
       },
     });
 
