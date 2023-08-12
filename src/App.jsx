@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App p-5">
       <h1 className="text-orange-600 font-mono">unsplash-ED</h1>
       <form onSubmit={handleSearchSubmit} className="form mt-5 rounded">
         <input
@@ -45,7 +45,7 @@ function App() {
 
         ))}
       </div>
-      <div className='footer m-5'>Created by Ricky A</div>
+      <div className='footer'>Created by Ricky A</div>
     </div>
   );
 }
