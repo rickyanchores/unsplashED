@@ -35,14 +35,17 @@ function App() {
       </form>
       <div className="photo-list flex flex-wrap">
         {photos.map((photo) => (
-          <img className="image p-5 mt-5 rounded-2xl"
+          <div className='photo-container bg-slate-900 p-5 m-5 rounded-lg'>
+            <img className="image"
             key={photo.id}
             src={photo.urls.regular}
             alt={photo.alt_description}
           />
+          </div>
+
         ))}
       </div>
-      <div>Created by Ricky A</div>
+      <div className='footer m-5'>Created by Ricky A</div>
     </div>
   );
 }
