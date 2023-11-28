@@ -35,7 +35,7 @@ function App() {
       </form>
       <div className="photo-list flex flex-wrap">
         {photos.map((photo) => (
-          <div className='photo-container p-5 m-5 rounded-lg'>
+          <div className='photo-container p-2 m-5 rounded-l bg-slate-800'>
             <img className="image"
             key={photo.id}
             src={photo.urls.regular}
