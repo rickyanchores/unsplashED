@@ -33,10 +33,10 @@ function App() {
         />
         <button type="submit" className="bg-slate-800">Search</button>
       </form>
-      <div className="photo-list flex flex-wrap">
+      <div className="photo-list grid grid-cols-1 md:grid-cols-3 gap-4">
         {photos.map((photo) => (
-          <div className='photo-container p-2 m-5 rounded-l bg-slate-800'>
-            <img className="image"
+          <div className='photo-container '>
+            <img className="image rounded-2xl"
             key={photo.id}
             src={photo.urls.regular}
             alt={photo.alt_description}
